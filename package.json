@@ -1,0 +1,14 @@
+{
+  "name": "livestore-multi-store-api-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.10.1",
+    "@slidev/theme-default": "^0.25.0"
+  }
+}
