@@ -2,6 +2,6 @@
 
 A slide deck presenting the new Multi-Store API for LiveStore's React integration.
 
-https://livestore-multi-store-api-presentation.vercel.app
+https://livestore-multi-store-api-presentat.vercel.app
 
 Built with [Slidev](https://sli.dev/).
