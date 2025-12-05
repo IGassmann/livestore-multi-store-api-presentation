@@ -51,17 +51,6 @@ function Content() {
 
 </v-clicks>
 
-<!--
-This is how LiveStore works today with React.
-
-You wrap your app in LiveStoreProvider, pass schema and adapter, and useStore() gives you back the store.
-
-But there are some limitations:
-- One store per app
-- No lifecycle management - can't load/unload dynamically
-- Render props instead of modern Suspense/Error Boundaries
--->
-
 ---
 
 # Why This Matters
@@ -76,16 +65,6 @@ But there are some limitations:
 
 </v-clicks>
 
-<!--
-Why does this matter?
-
-Imagine an issue tracking app with thousands of issues - you can't load them all at once.
-
-Two main use cases:
-- Partial sync: browsers have memory limits
-- Multi-workspace apps like Slack, Notion, Linear - each workspace needs isolated data
--->
-
 ---
 
 # New API Overview
@@ -97,16 +76,6 @@ Two main use cases:
 | `<StoreRegistryProvider>` | Provides registry to React tree |
 | `useStore(options)` | Get store instance (suspends until ready) |
 | `useStoreRegistry()` | Access registry for preloading |
-
-<!--
-Here's an overview of the new API.
-
-- storeOptions: define reusable store configurations
-- StoreRegistry: manages all store instances, handles caching and garbage collection
-- StoreRegistryProvider: provides registry to React tree
-- useStore: get a store instance, suspends until ready
-- useStoreRegistry: access registry for advanced operations like preloading
--->
 
 ---
 
@@ -201,14 +170,6 @@ Key things to notice:
 
 </v-clicks>
 
-<!--
-To summarize the key points:
-- Each store is fully isolated - own event log, own database
-- Automatic caching - same storeId returns same instance
-- Automatic memory eviction - unused stores get garbage collected
-- Works with Suspense and Error Boundaries
--->
-
 ---
 layout: center
 class: text-center
@@ -236,37 +197,11 @@ layout: center
 class: text-center
 ---
 
-# Demo Time
-
-## web-email-client
-
-Partial synchronization with multi-store architecture
-
-<!--
-Demo: web-email-client example
-
-This shows how multi-store unlocks partial synchronization.
-
-Architecture:
-- Mailbox store (singleton): labels, thread index, UI state
-- Thread stores (multi-instance): individual thread data
-
-Show:
-- Projection tables in mailbox schema
-- Dynamic thread store loading
-- Preloading on hover
--->
-
----
-layout: center
-class: text-center
----
-
 <div class="text-xl space-y-6">
 
-The API is available now in [`@livestore/react` (experimental)](https://dev.docs.livestore.dev/reference/framework-integrations/react-integration/#multi-store).
+The API is already available in [`@livestore/react` (experimental)](https://dev.docs.livestore.dev/reference/framework-integrations/react-integration/#multi-store).
 
-It will very soon replace the current API.
+It will replace the current API in the upcoming 0.4 release.
 
 <v-click>
 
@@ -275,13 +210,3 @@ It will very soon replace the current API.
 </v-click>
 
 </div>
-
-<!--
-The API is available now in @livestore/react as experimental.
-
-It will very soon replace the current API.
-
-We'll provide a migration guide - migration is straightforward, mainly moving config into storeOptions().
-
-We want to make sure it works for your use cases before finalizing. Feedback is always appreciated!
--->
